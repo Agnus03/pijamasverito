@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Principal</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/css/headeryfooter.css">
+	<link rel="stylesheet" href="/css/index.css">
+	<link rel="shortcut icon" th:href="@{/imagenes/Icono.png}" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap" rel="stylesheet">
+	<!-- Boostrap -->
+	<link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{https://getbootstrap.com/docs/5.3/assets/css/docs.css}" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}" rel="stylesheet">
+
+	<!-- Vincula jQuery desde un CDN -->
+	<script th:src="@{https://code.jquery.com/jquery-3.6.4.min.js}"></script>
+
+	<!-- Vincula tu archivo JavaScript externo -->
+	<script th:src="@{/js/funciones.js}"></script>
+	<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js}"></script>
+
+	<style>
+		body {
+			font-family: cursive;
+			background-image: url("https://img.freepik.com/vector-gratis/fondo-monocromatico-blanco-degradado_23-2149001594.jpg?w=900&t=st=1698020513~exp=1698021113~hmac=a3cebb0e8d2a7ff6a54d4483c0b463158a88bfd49a237763fbd0aff4a72d7f1e");
+			background-size: cover;
+			/* Cubre todo el ancho y alto del viewport */
+			background-position: center;
+			/* Centra la imagen */
+			background-repeat: no-repeat;
+
+		}
+		 .offer {
+            background-color: #FFD700;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+
+        }
+
+        .discount {
+            color: red;
+
+        }
+
+        .duration {
+            color: #006400;
+            font-weight: bold;
+
+        }
+
+        .on-sale .sale {
+            color: red;
+
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: grey;
+        }
+
+        .precio {
+            font-size: 24px;
+            color: #000;
+            margin: 5px 0;
+        }
+
+        .discount,
+        .old-price,
+        .duration {
+            font-size: 16px;
+            /* Tamaño del texto para otros detalles */
+            margin: 5px 0;
+            /* Márgenes superior e inferior para espaciado */
+        }
+	</style>
+</head>
+
+<body>
+	<div>
+		<a th:href="@{/administradores/perfilHome/{id}(id = ${administrador.id})}">
+			<div class="logo">
+				<img src="/img/logo_principal.png" alt="Logo">
+			</div></ion-icon>
+		</a>
+	</div>
+	<header>
+
+        <nav class="centro" style="color: black;">
+
+            <div class="nav-item dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="https://cdn-icons-png.flaticon.com/512/912/912318.png" alt="Empleados" width="30"
+                        height="30">
+                    Empleados
+                </a>
+
+                <div class="dropdown-menu " aria-labelledby="dropdownMenuLink" style="background-color: #fffafa;">
+                    <a th:href="@{/administradores/list/{id}(id = ${administrador.id})}">Administradores</a>
+                    <hr class="dropdown-divider">
+                    <a th:href="@{/bodegueros/list/{id}(id = ${administrador.id})}">
+                        Bodegueros</a>
+                    <hr class="dropdown-divider">
+                    <a th:href="@{/empleados/list/{id}(id = ${administrador.id})}">
+                        Empleados</a>
+                </div>
+            </div>
+
+            <div>
+                <a th:href="@{/inventarios/list/{id}(id = ${administrador.id})}"><img
+                        src="https://cdn-icons-png.flaticon.com/512/2897/2897616.png" alt="Inventario" width="30"
+                        height="30" style="margin: 2px;">Inventario</a>
+
+            </div>
+
+            <div>
+                <a th:href="@{/pedidos/list/{id}(id = ${administrador.id})}"><img
+                        src="https://cdn-icons-png.flaticon.com/512/2717/2717945.png " alt="Pedidos" width="32"
+                        height="32" style="margin: 2px;">
+                    Pedidos</a>
+            </div>
+
+            <div>
+                <a th:href="@{/administradores/perfil/{id}(id = ${administrador.id})}"><img
+                        src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="MiPerfil" width="30"
+                        height="30" style="margin: 2px;">Mi Perfil</a>
+            </div>
+            
+            <div>
+                <a th:href="@{/administradores/modificar/{id}(id = ${administrador.id})}"><img
+                        src="https://cdn-icons-png.flaticon.com/512/8188/8188360.png" alt="EditarMiPerfil"
+                        width="30" height="30" style="margin: 2px;">Editar Mi Perfil</a>
+            </div>
+
+            <div class="cerrar-sesion" style="color: black; ">
+
+                <div>
+                    <a th:href="@{/login/}"><img src="https://cdn-icons-png.flaticon.com/512/5509/5509651.png"
+                            alt="CerrarSesion" width="30" height="30">
+                        Cerrar Sesión<ion-icon name="log-out-outline"></ion-icon></a>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+	<center>
+		<main>
+			<div>
+                <a class="text-center mt-1" style="color: rgb(0, 0, 0); text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);"><strong>Bienvenido/a:</strong> [[ ${administrador.nombre} ]]</a>
+			</div>
+			<!-- Promociones -->
+			<div class="product-section">
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/81ZQDDqZHOL.AC_SL1500.jpg"
+                    alt="Producto 1">
+                <p style="margin-top: 10px;"><strong>Pijama de seda con estampado floral</strong>
+                </p>
+                <p class="precio"><strong>$45,000 COP</strong></p>
+                <p class="discount"><strong>- 15%</strong></p>
+                <p class="old-price"><strong>$52,941 COP</strong></p>
+                <div class="offer">
+                    <p class="duration"><strong>Oferta válida hasta: 31 de diciembre de 2023</strong></p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ae01.alicdn.com/kf/S08c57fc97d2141c6bb8c298b059af109V/Conjunto-de-Pijama-de-algod-n-peinado-con-bordado-de-pato-para-Mujer-ropa-de-dormir.jpg_640x640.jpg_.webp"
+                    alt="Producto 2">
+                <p style="margin-top: 10px;"><strong>Pijama de algodón con estampado de pato. Cómodo para todo el
+                        año</strong></p>
+                <p class="precio"><strong>$35,000 COP</strong></p>
+                <p class="discount"><strong>- 10%</strong></p>
+                <p class="old-price"><strong>$38,889 COP</strong></p>
+                <div class="offer">
+                    <p class="duration"><strong>Oferta válida hasta: 31 de diciembre de 2023</strong></p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/513vARsukiL.AC.jpg"
+                    alt="Producto 3">
+                <p style="margin-top: 10px;"><strong>Pijama de lino con estampado de puntos. Fresco para las noches de
+                        verano</strong></p>
+                <p class="precio"><strong>$40,000 COP</strong></p>
+                <p class="discount"><strong>- 20%</strong></p>
+                <p class="old-price"><strong>$50,000 COP</strong></p>
+                <div class="offer">
+                    <p class="duration"><strong>Oferta válida hasta: 31 de diciembre de 2023</strong></p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://down-co.img.susercontent.com/file/6aea7bf1d26b0df6112de3f05471c895"
+                    alt="Producto 4">
+                <p style="margin-top: 10px;"><strong>Pijama de franela con estampado de Tiger y capota. Divertido para los
+                        niños</strong></p>
+                <p class="precio"><strong>$30,000 COP</strong></p>
+                <p class="discount"><strong>- 25%</strong></p>
+                <p class="old-price"><strong>$40,000 COP</strong></p>
+                <div class="offer">
+                    <p class="duration"><strong>Oferta válida hasta: 31 de diciembre de 2023</strong></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="product-section">
+
+            <div class="product-section">
+                <div class="product-card">
+                    <img src="https://down-co.img.susercontent.com/file/46fb89e2fbd8c655782dd46a35d7fb53"
+                        alt="Producto 5">
+                    <p style="margin-top: 10px;"><strong>Pijama de mujer con estampado de moños. Sexy y cómodo</strong></p>
+                    <p class="precio"><strong>$50,000 COP</strong></p>
+                    <p class="discount"><strong>- 10%</strong></p>
+                    <p class="old-price"><strong>$55,556 COP</strong></p>
+                    <div class="offer">
+                        <p class="duration"><strong>Oferta válida hasta: 31 de diciembre de 2023</strong></p>
+                    </div>
+                </div>
+            
+                <div class="product-card">
+                    <img src="https://down-co.img.susercontent.com/file/sg-11134201-7qvf5-lg4msgh0to1s31"
+                        alt="Producto 6">
+                    <p style="margin-top: 10px;"><strong>Pantalones de pijama para hombre con estampado de franela con cuadros</strong></p>
+                    <p class="precio"><strong>$40,000 COP</strong></p>
+                    <p class="discount"><strong>- 15%</strong></p>
+                    <p class="old-price"><strong>$47,059 COP</strong></p>
+                    <div class="offer">
+                        <p class="duration"><strong>Oferta válida hasta: 31 de diciembre de 2023</strong></p>
+                    </div>
+                </div>
+            
+                <div class="product-card">
+                    <img src="https://down-co.img.susercontent.com/file/sg-11134201-7rbnc-ln448d82ksvp5b"
+                        alt="Producto 7">
+                    <p style="margin-top: 10px;"><strong>Pijama de terciopelo con bolsillos.Temática pikachu. Suave y cálida</strong></p>
+                    <p class="precio"><strong>$45,000 COP</strong></p>
+                    <p class="discount"><strong>- 20%</strong></p>
+                    <p class="old-price"><strong>$56,250 COP</strong></p>
+                    <div class="offer">
+                        <p class="duration"><strong>Oferta válida hasta: 31 de diciembre de 2023</strong></p>
+                    </div>
+                </div>
+            
+                <div class="product-card">
+                    <img src="https://down-co.img.susercontent.com/file/48c0148678243348273210c0589f770d"
+                        alt="Producto 8">
+                    <p style="margin-top: 10px;"><strong>Pijama para niños bebé de navidad. Divertido y acogedor</strong></p>
+                    <p class="precio"><strong>$35,000 COP</strong></p>
+                    <p class="discount"><strong>- 25%</strong></p>
+                    <p class="old-price"><strong>$46,667 COP</strong></p>
+                    <div class="offer">
+                        <p class="duration"><strong>Oferta válida hasta: 31 de diciembre de 2023</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+			</div>
+
+		</main>
+	</center>
+
+
+	<footer style="width: 100%; text-align: center; font-size: 15px;">
+		<div style="padding: 5px;">
+			<div class="row">
+				<div class="col-md-4">
+					<h4><strong>Bucaramanga</strong></h4>
+					<p>Centro Plaza Local 148</p>
+					<h4><strong>Contacto</strong></h4>
+					<p>+57 3173142803</p>
+					<p>+57 3424224051</p>
+				</div>
+				<div class="col-md-4">
+					<h3><strong>Horarios:</strong></h3>
+
+					<p>Lunes a Sábados</p>
+					<p>9:00 am - 12:00 pm</p>
+					<p>1:00 pm - 6:30 pm</p>
+				</div>
+				<div class="col-md-4" style="display: flex; justify-content: center; align-items: center;">
+					<ul style="list-style: none; display: flex; justify-content: center;">
+						<li style="margin: 5px;"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+								alt="Logo de WhatsApp" width="40" height="40"></li>
+						<li style="margin: 5px;"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png"
+								alt="Logo de Facebook" width="40" height="40"></li>
+						<li style="margin: 5px;"><img src="https://cdn-icons-png.flaticon.com/512/4494/4494477.png"
+								alt="Logo de Twitter" width="40" height="40"></li>
+						<li style="margin: 3px;"><img src="https://cdn-icons-png.flaticon.com/512/4138/4138124.png"
+								alt="Logo de Instagram" width="45" height="45"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<section>
+			<p>
+			<p><strong>© Copyright 2023.</strong> Todos los derechos reservados</p>
+			</p>
+		</section>
+	</footer>
+
+</body>
+
+</html>
