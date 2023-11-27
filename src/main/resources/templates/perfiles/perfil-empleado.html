@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/css/headeryfooter.css">
+	<link rel="stylesheet" href="/css/index.css">
+	<link rel="shortcut icon" th:href="@{/imagenes/Icono.png}" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap" rel="stylesheet">
+	<!-- Boostrap -->
+	<link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{https://getbootstrap.com/docs/5.3/assets/css/docs.css}" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}" rel="stylesheet">
+
+	<!-- Vincula jQuery desde un CDN -->
+	<script th:src="@{https://code.jquery.com/jquery-3.6.4.min.js}"></script>
+
+	<!-- Vincula tu archivo JavaScript externo -->
+	<script th:src="@{/js/funciones.js}"></script>
+	<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js}"></script>
+
+	<style>
+		body {
+			font-family: cursive;
+			background-image: url("https://img.freepik.com/vector-gratis/fondo-monocromatico-blanco-degradado_23-2149001594.jpg?w=900&t=st=1698020513~exp=1698021113~hmac=a3cebb0e8d2a7ff6a54d4483c0b463158a88bfd49a237763fbd0aff4a72d7f1e");
+			background-size: cover;
+			/* Cubre todo el ancho y alto del viewport */
+			background-position: center;
+			/* Centra la imagen */
+			background-repeat: no-repeat;
+
+		}
+		form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff; /* Color de fondo del formulario */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.center {
+  text-align: center;
+}
+
+.miperfil {
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  padding: 5px;
+}
+
+.imagen-con-borde {
+  border-radius: 50%;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.button {
+  background-color: #000; /* Color del botón */
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: grey; /* Color del botón al pasar el ratón */
+}
+
+.divBoton {
+  text-align: center;
+  margin-top: 20px;
+}
+	</style>
+
+<body>
+	<div>
+		<a th:href="@{/empleados/perfilHome/{id}(id = ${empleado.id})}">
+			<div class="logo">
+				<img src="/img/logo_principal.png" alt="Logo">
+			</div></ion-icon>
+		</a>
+	</div>
+	<header>
+
+        <nav class="centro" style="color: black;">
+
+            <div>
+                <a th:href="@{/inventarios/listInventarioEmpleado/{id}(id = ${empleado.id})}"><img
+                        src="https://cdn-icons-png.flaticon.com/512/2897/2897616.png" alt="Inventario" width="30"
+                        height="30" style="margin: 2px;">Inventario</a>
+
+            </div>
+            
+            <div>
+                <a th:href="@{/pedidos/listEmpleado/{id}(id = ${empleado.id})}"><img
+                        src="https://cdn-icons-png.flaticon.com/512/2717/2717945.png " alt="Pedidos" width="32"
+                        height="32" style="margin: 2px;">
+                    Pedidos</a>
+            </div>
+            
+            <div>
+                <a th:href="@{/empleados/perfil/{id}(id = ${empleado.id})}"><img
+                        src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="MiPerfil" width="30"
+                        height="30" style="margin: 2px;">Mi Perfil</a>
+            </div>
+            
+            <div>
+                <a th:href="@{/empleados/modificar/{id}(id = ${empleado.id})}"><img
+                        src="https://cdn-icons-png.flaticon.com/512/8188/8188360.png" alt="EditarMiPerfil"
+                        width="30" height="30" style="margin: 2px;">Editar Mi Perfil</a>
+            </div>
+
+            <div class="cerrar-sesion" style="color: black; ">
+
+                <div>
+                    <a th:href="@{/login/}"><img src="https://cdn-icons-png.flaticon.com/512/5509/5509651.png"
+                            alt="CerrarSesion" width="30" height="30">
+                        Cerrar Sesión<ion-icon name="log-out-outline"></ion-icon></a>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+	<form th:action="@{/empleados/modificarPerfil}" th:object="${empleado}" method="post">
+		<center>
+			<img src="https://cdn-icons-png.flaticon.com/512/6927/6927593.png" width="50" class="miperfil imagen-con-borde">
+		</center>
+
+		<input type="hidden" th:field="*{id}">
+		<div hidden>
+			<label for="anulado">Bloqueado: </label>
+			<input type="checkbox" id="estadoCheckbox" onchange="toggleEstado()">
+			<input type="hidden" th:field="*{estado}" id="estadoHidden" th:value="${empleado.estado}">
+		</div>
+
+		<div>
+			<label for="numeroDocumento">Documento: </label>
+			<input type="text" id="numeroDocumento" th:field="*{documento}" placeholder="Numero de documento" disabled>
+		</div>
+
+		<div>
+			<label for="nombre">Nombre: </label>
+			<input type="text" id="nombre" th:field="*{nombre}" placeholder="Nombre" disabled>
+		</div>
+
+		<div>
+			<label for="apellido">Apellido: </label>
+			<input type="text" id="apellido" th:field="*{apellido}" placeholder="Apellido" disabled>
+		</div>
+
+		<div>
+			<label for="telefono">Telefono: </label>
+			<input type="text" id="telefono" th:field="*{telefono}" placeholder="Telefono" disabled>
+		</div>
+
+		<div>
+			<label for="correo">Correo: </label>
+			<input type="text" id="correo" th:field="*{correo}" placeholder="Correo" disabled>
+		</div>
+
+		<div>
+			<label for="contrasena">Contraseña: </label>
+			<input type="text" id="contrasena" th:field="*{contrasena}" placeholder="Contraseña" disabled>
+		</div>
+
+	</form>
+
+
+	<footer>
+	
+	</footer>
+
+</body>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		// Llama a la función para inicializar el estado del checkbox
+		inicializarCheckbox();
+	});
+
+	function inicializarCheckbox() {
+		// Obtener referencias a los campos
+		var estadoCheckbox = document.getElementById('estadoCheckbox');
+		var estadoHidden = document.getElementById('estadoHidden');
+
+		// Obtener el valor de estadoHidden
+		var estadoHiddenValue = estadoHidden.value;
+
+		// Inicializar el estado del checkbox según el valor de anuladoHidden
+		estadoCheckbox.checked = (estadoHiddenValue.toLowerCase() === 'bloqueado');
+
+	}
+
+	function toggleEstado() {
+		// Obtener referencias a los campos
+		var estadoCheckbox = document.getElementById('estadoCheckbox');
+		var estadoHidden = document.getElementById('estadoHidden');
+
+		// Actualizar el valor de anuladoHidden según el estado del checkbox
+
+		// Actualizar otros campos según sea necesario
+		if (estadoCheckbox.checked) {
+
+			estadoHidden.value = 'bloqueado';
+
+		} else {
+
+			estadoHidden.value = 'activo';
+		}
+	}
+</script>
+
+</html>

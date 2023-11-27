@@ -1,0 +1,101 @@
+#SECTION_1 {
+    block-size: 41px;
+    height: 41px;
+    box-sizing: border-box;
+    position: relative;
+    right: 0px;
+    text-align: center;
+    text-size-adjust: 100%;
+    top: 0px;
+    background: rgb(0, 0, 0);
+    font: 13px / 40px "Avenir Next", sans-serif;
+    color: white;
+}
+#STRONG_1 {
+    color: white;
+    font-weight: bold;
+}
+
+#A_1 {
+    color: white;
+    font-weight: bold;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    /* font-family: Verdana, sans-serif; */
+}
+
+.logo {
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.logo img {
+    height: 60px;
+}
+
+
+header {
+    background-color: #fffafa;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 95%;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 50px;
+    font-weight: bold;
+}
+
+.cerrar-sesion {
+    margin-right: 40px;
+    float: right;
+}
+
+#carrito {
+    font-size: 20px;
+    color: white;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    position: absolute;
+    bottom: auto;
+    width: 100%;
+}
+
+nav a,
+.cerrar-sesion a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover,
+.cerrar-sesion a:hover {
+    color: rgb(96, 127, 82);
+}
+
